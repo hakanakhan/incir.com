@@ -47,7 +47,18 @@ $get_main_pair, $skip_company_condition, $lang_code)
 	//Getting authentication data to identify user
 	$auth = $_SESSION['auth'];
 
-	
+/*	
+$number = db_get_field('SELECT feature_id FROM ?:product_features_descriptions ORDER BY feature_id DESC LIMIT 1');
+$number=$number+1;
+db_query("INSERT INTO ?:product_features_descriptions (`feature_id` , `description` , `lang_code`) VALUES (?i , 'kirmizi' , 'en')",$number);     
+
+db_query("INSERT INTO ?:product_features
+ (feature_id , feature_code , company_id , feature_type , 
+
+categories_path , parent_id , display_on_product , display_on_catalog 
+
+, display_on_header , status , position , comparison) VALUES (?i , '' , 1 , 'C' , '' , 0 , 'Y' , 'N' , 'N' , 'A' , 0 , 'N')",$number);
+*/
 
 //Checking if the user is logged in and resides at the customer area
 	
