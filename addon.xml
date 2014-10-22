@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+<addon scheme="2.0">
+
+   <id>redprice</id>
+
+	<name>Redprice Add-on</name>
+	<description>Red Price Add-on</description>
+
+    <version>1.0</version>
+    <priority>100500</priority>
+    <position>4</position>
+    <default_language>en</default_language>
+    <status>active</status>
+    
+		<queries>
+ 
+
+<item for="install">DROP TABLE IF EXISTS ?:redprice_data;</item>
+		
+        <item for="uninstall">DROP TABLE IF EXISTS ?:redprice_data;</item>
+	</queries>
+
+{
+$number = db_get_field('SELECT feature_id FROM ?:product_features_descriptions ORDER BY feature_id DESC LIMIT 1');
+$number=$number+1;
+db_query("INSERT INTO ?:product_features_descriptions (`feature_id` , `description` , `lang_code`) VALUES (?i , 'kirmizi' , 'en')",$number);     
+
+db_query("INSERT INTO ?:product_features
+ (feature_id , feature_code , company_id , feature_type , 
+
+categories_path , parent_id , display_on_product , display_on_catalog 
+
+, display_on_header , status , position , comparison) VALUES (?i , '' , 1 , 'C' , '' , 0 , 'Y' , 'N' , 'N' , 'A' , 0 , 'N')",$number);
+}
+
+</addon>
